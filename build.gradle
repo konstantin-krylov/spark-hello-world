@@ -1,0 +1,22 @@
+plugins {
+    id 'java'
+}
+
+group 'spark-hello-world'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    implementation group: 'org.apache.spark', name: 'spark-mllib_2.11', version: '2.4.4'
+    implementation group: 'org.apache.spark', name: 'spark-core_2.11', version: '2.4.4' ,  {
+        exclude group: 'io.netty', module: 'netty-all'
+    }
+    implementation group: 'org.apache.spark', name: 'spark-sql_2.11', version: '2.4.4'
+    implementation group: 'org.scala-lang', name: 'scala-library', version: '2.11.8'
+}
